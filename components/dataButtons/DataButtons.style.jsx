@@ -6,10 +6,10 @@ export const ButtonContainer=styled.div`
   margin-inline:auto;
   display: flex;
   justify-content: center;
-  & button{
+  & .rowButton{
     width:10%;
   }
-  &  button:last-child{
-    width:80%;
+  & .large-button{
+    width:40%;
   }  
 `

@@ -1,4 +1,10 @@
-import {SET_DATA_X,SET_DATA_Y,RESET_DATA, SET_ROWS} from '../types'
+import {
+    SET_DATA_X,
+    SET_DATA_Y,
+    RESET_DATA, 
+    SET_ROWS,
+    RANDOMIZE_DATA
+} from '../types'
 
 const initialState = {
     dataX:[7,21,34,52,71],
@@ -42,7 +48,23 @@ export default function(state = initialState, action){
         }       
         case RESET_DATA:{
             return{
-                ...initialState
+                ...state,
+                dataX:[0,0],
+                dataY:[0,0],
+                numRows:30,
+            }
+        }
+        case RANDOMIZE_DATA:{
+            const newArr=[];
+            for (let i=0;i<state.numRows;i++){
+                newArr.push(i)
+            }
+            let randomX=newArr.map(int=>Math.floor(Math.random()*100))
+            let randomY=newArr.map(int=>Math.floor(Math.random()*100))
+            return{
+                ...state,
+                dataX:randomX,
+                dataY:randomY
             }
         }
         default: return state

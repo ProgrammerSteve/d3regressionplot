@@ -1,4 +1,10 @@
-import {SET_DATA_X,SET_DATA_Y,RESET_DATA,SET_ROWS} from '../types'
+import {
+  SET_DATA_X,
+  SET_DATA_Y,
+  RESET_DATA,
+  RANDOMIZE_DATA,
+  SET_ROWS
+} from '../types'
 
 export const setDataX=(index,value)=>{
   return({
@@ -21,6 +27,12 @@ export const setRows=(value)=>{
 export const resetData=()=>{
   return({
     type: RESET_DATA,
+    payload: {},
+  })
+}
+export const randomizeData=()=>{
+  return({
+    type: RANDOMIZE_DATA,
     payload: {},
   })
 }
