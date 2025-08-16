@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 
+interface ScatterContainerProps {
+  ref?: React.RefObject<HTMLDivElement>;
+  id?: string;
+}
 
-export const ScatterContainer = styled.div`
+export const ScatterContainer = styled.div<ScatterContainerProps>`
   background-color: #ffffff;
   border: 1px solid #e5e7eb;
   border-radius: 8px;
