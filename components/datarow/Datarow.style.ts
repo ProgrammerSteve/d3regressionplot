@@ -1,6 +1,13 @@
 import styled from 'styled-components';
 
-export const DatarowContainer = styled.input`
+interface DatarowContainerProps {
+  type?: string;
+  min?: number;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  value?: string | number;
+}
+
+export const DatarowContainer = styled.input<DatarowContainerProps>`
   width: 100%;
   padding: 4px 8px;
   border: 1px solid #d1d5db;
