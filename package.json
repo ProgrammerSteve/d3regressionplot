@@ -27,8 +27,11 @@
     "eslint": "8.26.0",
     "eslint-config-next": "13.0.0",
     "typescript": "5.0.4"
+<<<<<<< HEAD
   },
   "engines": {
     "node": ">=18.x"
+=======
+>>>>>>> 94694ae (refactored styling and cleaned up code)
   }
 }
