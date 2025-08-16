@@ -4,8 +4,7 @@ import DataButtons from '../../components/dataButtons/DataButtons';
 import { MainContainer } from './Main.style';
 import React from 'react';
 
-
-const Main = () => {
+const Main: React.FC = () => {
   return (
     <MainContainer>
       <div className="chartWrapper">

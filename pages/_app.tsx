@@ -1,7 +1,7 @@
-import '../styles/globals.css';
-import { wrapper, store } from '../redux/store';
-import { Provider } from 'react-redux';
-import type { AppProps } from 'next/app';
+import "../styles/globals.css";
+import { wrapper, store } from "../redux/store";
+import { Provider } from "react-redux";
+import type { AppProps } from "next/app";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

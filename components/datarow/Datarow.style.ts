@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-
 export const DatarowContainer = styled.input`
   width: 100%;
   padding: 4px 8px;

@@ -1,7 +1,3 @@
-/**
- * Action type constants for the data management Redux slice. These
- * constants ensure that dispatch and reducer logic remain in sync.
- */
 export const SET_DATA_X = 'SET_DATA_X';
 export const SET_DATA_Y = 'SET_DATA_Y';
 export const SET_ROWS = 'SET_ROWS';
@@ -32,6 +28,7 @@ export interface RandomizeDataAction {
   type: typeof RANDOMIZE_DATA;
 }
 
+// Union type for all possible actions
 export type DataActionTypes =
   | SetDataXAction
   | SetDataYAction
