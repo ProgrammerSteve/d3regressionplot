@@ -1,8 +1,7 @@
-import { DatarowContainer } from './Datarow.style';
-import { useDispatch } from 'react-redux';
-import { setDataX, setDataY } from '../../redux/actions/dataActions';
-import React from 'react';
-
+import { DatarowContainer } from "./Datarow.style";
+import { useDispatch } from "react-redux";
+import { setDataX, setDataY } from "../../redux/actions/dataActions";
+import React from "react";
 
 interface DatarowProps {
   i: number;
@@ -25,10 +24,20 @@ const Datarow: React.FC<DatarowProps> = ({ i, x, y }) => {
     <tr>
       <td>{i}</td>
       <td>
-        <DatarowContainer type="number" min={0} onChange={handleChangeX} value={x} />
+        <DatarowContainer
+          type="number"
+          min={0}
+          onChange={handleChangeX}
+          value={x}
+        />
       </td>
       <td>
-        <DatarowContainer type="number" min={0} onChange={handleChangeY} value={y} />
+        <DatarowContainer
+          type="number"
+          min={0}
+          onChange={handleChangeY}
+          value={y}
+        />
       </td>
     </tr>
   );
