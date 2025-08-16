@@ -1,17 +1,9 @@
-<<<<<<< HEAD
-import { ScatterContainer } from './Scatterplot.style';
-import * as d3 from 'd3';
-import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import React from 'react';
-=======
 import { ScatterContainer } from "./Scatterplot.style";
 import * as d3 from "d3";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import React from "react";
 
->>>>>>> 94694ae (refactored styling and cleaned up code)
 
 interface ScatterplotProps {
   minX?: number;
@@ -35,21 +27,6 @@ const Scatterplot: React.FC<ScatterplotProps> = ({
   maxX = 100,
   minY = 0,
   maxY = 100,
-<<<<<<< HEAD
-  chartWidth = 700,
-  chartHeight = 700,
-  xTitle = 'x-axis',
-  yTitle = 'y-axis',
-  gTitle = 'Scatter Plot',
-  marginTop = 100,
-  marginBottom = 0,
-  marginLeft = 80,
-  marginRight = 40,
-}) => {
-  const { dataX, dataY } = useSelector((state: any) => state.data);
-  const filteredDataX = dataX.filter((_: any, ind: number) => dataX[ind] && dataY[ind]);
-  const filteredDataY = dataY.filter((_: any, ind: number) => dataX[ind] && dataY[ind]);
-=======
   xTitle = "x-axis",
   yTitle = "y-axis",
   gTitle = "Scatter Plot",
@@ -97,7 +74,6 @@ const Scatterplot: React.FC<ScatterplotProps> = ({
   const filteredDataY = dataY.filter(
     (_: any, ind: number) => dataX[ind] && dataY[ind]
   );
->>>>>>> 94694ae (refactored styling and cleaned up code)
 
   const width = chartWidth - marginLeft - marginRight;
   const height = chartHeight - marginTop - marginBottom;
@@ -107,10 +83,6 @@ const Scatterplot: React.FC<ScatterplotProps> = ({
   const yScale = d3.scaleLinear().domain([minY, maxY]).range([height, 0]);
 
   // Grid generators
-<<<<<<< HEAD
-  const xAxisGrid = d3.axisBottom(xScale).tickSize(-height).tickFormat(() => '').ticks(10);
-  const yAxisGrid = d3.axisLeft(yScale).tickSize(-width).tickFormat(() => '').ticks(10);
-=======
   const xAxisGrid = d3
     .axisBottom(xScale)
     .tickSize(-height)
@@ -121,7 +93,6 @@ const Scatterplot: React.FC<ScatterplotProps> = ({
     .tickSize(-width)
     .tickFormat(() => "")
     .ticks(10);
->>>>>>> 94694ae (refactored styling and cleaned up code)
 
   // Compute regression statistics
   const numPoints = filteredDataX.length;
@@ -149,24 +120,16 @@ const Scatterplot: React.FC<ScatterplotProps> = ({
     if (num > lastPointX) lastPointX = num;
   });
   const mean = sumY / numPoints;
-<<<<<<< HEAD
-  yintercept = (sumY * sumXsq - sumX * sumXY) / (numPoints * sumXsq - sumX ** 2);
-=======
   yintercept =
     (sumY * sumXsq - sumX * sumXY) / (numPoints * sumXsq - sumX ** 2);
->>>>>>> 94694ae (refactored styling and cleaned up code)
   slope = (numPoints * sumXY - sumX * sumY) / (numPoints * sumXsq - sumX ** 2);
   firstPointY = regressionline(firstPointX, slope, yintercept);
   lastPointY = regressionline(lastPointX, slope, yintercept);
   filteredDataX.forEach((_: any, ind: number) => {
-<<<<<<< HEAD
-    SSR += (filteredDataY[ind] - regressionline(filteredDataX[ind], slope, yintercept)) ** 2;
-=======
     SSR +=
       (filteredDataY[ind] -
         regressionline(filteredDataX[ind], slope, yintercept)) **
       2;
->>>>>>> 94694ae (refactored styling and cleaned up code)
     SST += (filteredDataY[ind] - mean) ** 2;
   });
   const r_squared = 1 - SSR / SST;
@@ -177,43 +140,6 @@ const Scatterplot: React.FC<ScatterplotProps> = ({
     return { x: filteredDataX[ind], y: filteredDataY[ind] };
   });
 
-<<<<<<< HEAD
-  // Draw the chart on mount and whenever the data changes
-  useEffect(() => {
-    const svg = d3
-      .select('#scatter')
-      .append('svg')
-      .attr('preserveAspectRatio', 'xMinYMin meet')
-      .attr('viewBox', '0 0 700 700')
-      .classed('svg-content', true);
-
-    // X and Y axes
-    svg
-      .append('g')
-      .attr('class', 'axis')
-      .attr('transform', 'translate(' + marginLeft + ',' + (height + marginTop) + ')')
-      .call(d3.axisBottom(xScale))
-      .selectAll('text')
-      .attr('class', 'tickmark-numbers');
-    svg
-      .append('g')
-      .attr('class', 'axis')
-      .attr('transform', 'translate(' + marginLeft + ',' + marginTop + ')')
-      .call(d3.axisLeft(yScale))
-      .selectAll('text')
-      .attr('class', 'tickmark-numbers');
-
-    // Grid backgrounds
-    svg
-      .append('g')
-      .attr('class', 'axis-grid-background-color')
-      .attr('transform', 'translate(' + marginLeft + ',' + (height + marginTop) + ')')
-      .call(xAxisGrid);
-    svg
-      .append('g')
-      .attr('class', 'axis-grid-background-color')
-      .attr('transform', 'translate(' + marginLeft + ',' + marginTop + ')')
-=======
   // Draw the chart on mount and whenever the data or dimensions change
   useEffect(() => {
     if (chartWidth === 0 || chartHeight === 0) return; // Wait for dimensions
@@ -260,33 +186,10 @@ const Scatterplot: React.FC<ScatterplotProps> = ({
       .append("g")
       .attr("class", "axis-grid-background-color")
       .attr("transform", "translate(" + marginLeft + "," + marginTop + ")")
->>>>>>> 94694ae (refactored styling and cleaned up code)
       .call(yAxisGrid);
 
     // Titles and labels
     svg
-<<<<<<< HEAD
-      .append('text')
-      .attr('class', 'titleText')
-      .attr('x', chartWidth / 2 + 50)
-      .attr('y', marginTop - 5)
-      .text(`${gTitle}`);
-    svg
-      .append('text')
-      .attr('x', width / 2 + 80)
-      .attr('y', height - marginTop + 140)
-      .attr('class', 'AxisText')
-      .text(`${xTitle}`);
-    svg
-      .append('text')
-      .attr('transform', 'translate(20,' + height / 2.0 + ')rotate(-90)')
-      .attr('class', 'AxisText')
-      .text(`${yTitle}`);
-
-    // Equation and r-squared annotations
-    let equation = '';
-    let rsqString = '';
-=======
       .append("text")
       .attr("class", "titleText")
       .attr("x", chartWidth / 2)
@@ -313,28 +216,10 @@ const Scatterplot: React.FC<ScatterplotProps> = ({
     // Equation and r-squared annotations - positioned at top-right corner of card
     let equation = "";
     let rsqString = "";
->>>>>>> 94694ae (refactored styling and cleaned up code)
     if (filteredDataX.length > 0) {
       equation = `y=${yintercept.toFixed(2)}+${slope.toFixed(2)}x`;
       rsqString = `r^2=${r_squared.toFixed(2)}`;
     }
-<<<<<<< HEAD
-    svg
-      .append('text')
-      .attr('class', 'equationText')
-      .attr('x', chartWidth - 150)
-      .attr('y', marginTop - 30)
-      .style('font-family', 'Helvetica')
-      .text(equation);
-    svg
-      .append('text')
-      .attr('class', 'equationText')
-      .attr('x', chartWidth - 150)
-      .attr('y', marginTop - 3)
-      .style('font-family', 'Helvetica')
-      .text(rsqString);
-
-=======
 
     // Create equation text and measure its width for proper positioning
     const equationText = svg
@@ -365,60 +250,20 @@ const Scatterplot: React.FC<ScatterplotProps> = ({
       .attr("x", chartWidth - padding)
       .attr("y", padding + baseFontSize + lineHeight);
 
->>>>>>> 94694ae (refactored styling and cleaned up code)
     // Regression line
     const line = d3
       .line<{ x: number; y: number }>()
       .x((d) => xScale(d.x))
       .y((d) => yScale(d.y));
     const lineWrapper = svg
-<<<<<<< HEAD
-      .append('g')
-      .attr('transform', 'translate(' + marginLeft + ',' + marginTop + ')');
-    lineWrapper
-      .append('path')
-=======
       .append("g")
       .attr("transform", "translate(" + marginLeft + "," + marginTop + ")");
     lineWrapper
       .append("path")
->>>>>>> 94694ae (refactored styling and cleaned up code)
       .datum([
         { x: firstPointX, y: firstPointY },
         { x: lastPointX, y: lastPointY },
       ])
-<<<<<<< HEAD
-      .attr('class', 'regressionline')
-      .attr('d', line as any);
-
-    // Scatter points
-    svg
-      .append('g')
-      .selectAll('dot')
-      .data(dataset)
-      .enter()
-      .append('circle')
-      .attr('cx', function (d: { x: number; y: number }) {
-        return xScale(d.x);
-      })
-      .attr('cy', function (d: { x: number; y: number }) {
-        return yScale(d.y);
-      })
-      .attr('r', 5)
-      .attr('transform', 'translate(' + marginLeft + ',' + marginTop + ')')
-      .style('fill', '#dc2626');
-
-    return () => {
-      // Clear previous SVG before re-rendering
-      d3.selectAll('#scatter svg').remove();
-    };
-  }, [filteredDataX, filteredDataY, chartWidth]);
-
-  return <ScatterContainer id="scatter"></ScatterContainer>;
-};
-
-export default Scatterplot;
-=======
       .attr("class", "regressionline")
       .attr("d", line as any);
 
@@ -466,4 +311,3 @@ export default Scatterplot;
 };
 
 export default Scatterplot;
->>>>>>> 94694ae (refactored styling and cleaned up code)

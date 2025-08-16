@@ -10,10 +10,6 @@ interface DatarowProps {
   y: number | string;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 94694ae (refactored styling and cleaned up code)
 const Datarow: React.FC<DatarowProps> = ({ i, x, y }) => {
   const dispatch = useDispatch();
 

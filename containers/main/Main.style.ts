@@ -4,35 +4,6 @@ export const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
   background-color: #f9fafb;
-<<<<<<< HEAD
-  max-height: 100vh;
-  min-height: 0vh;
-  height: 100vh;
-  padding: 20px;
-  gap: 20px;
-  box-sizing: border-box;
-  overflow-y: hidden; /* Changed from 'yoverflow: hidden;' to 'overflow-y: hidden;' */
-
-  @media (min-width: 768px) {
-    flex-direction: row;
-    align-items: flex-start;
-    max-height: none;
-    min-height: 100vh;
-    height: auto;
-    overflow-y: scroll;
-  }
-
-  .chartWrapper {
-    flex: 2;
-    width: 100%;
-  }
-
-  .secondaryContainer {
-    flex: 1;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-=======
   box-sizing: border-box;
 
   /* Mobile-first: stack vertically, compact spacing */
@@ -90,6 +61,5 @@ export const MainContainer = styled.div`
     .secondaryContainer {
       flex: 0 0 400px;
     }
->>>>>>> 94694ae (refactored styling and cleaned up code)
   }
 `;

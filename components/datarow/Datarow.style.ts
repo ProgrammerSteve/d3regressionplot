@@ -1,9 +1,5 @@
 import styled from 'styled-components';
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 94694ae (refactored styling and cleaned up code)
 export const DatarowContainer = styled.input`
   width: 100%;
   padding: 4px 8px;

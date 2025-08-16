@@ -1,21 +1,11 @@
 import styled from 'styled-components';
 
-<<<<<<< HEAD
-export const ScatterContainer = styled.div`
-  position: relative;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-=======
 
 export const ScatterContainer = styled.div`
->>>>>>> 94694ae (refactored styling and cleaned up code)
   background-color: #ffffff;
   border: 1px solid #e5e7eb;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-<<<<<<< HEAD
-=======
   overflow: hidden;
   
   /* Mobile: fit within available space */
@@ -33,16 +23,12 @@ export const ScatterContainer = styled.div`
     max-height: 100%;
     aspect-ratio: 1;
   }
->>>>>>> 94694ae (refactored styling and cleaned up code)
 
   .svg-content {
     background-color: #f9fafb;
     width: 100%;
     height: 100%;
-<<<<<<< HEAD
-=======
     display: block;
->>>>>>> 94694ae (refactored styling and cleaned up code)
   }
 
   .regressionline {

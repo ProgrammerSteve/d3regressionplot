@@ -3,10 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setRows, resetData, randomizeData } from '../../redux/actions/dataActions';
 import React from 'react';
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 94694ae (refactored styling and cleaned up code)
 const DataButtons: React.FC = () => {
   const dispatch = useDispatch();
   const { numRows } = useSelector((state: any) => state.data);

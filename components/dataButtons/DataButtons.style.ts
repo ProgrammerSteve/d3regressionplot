@@ -1,16 +1,5 @@
 import styled from 'styled-components';
 
-<<<<<<< HEAD
-export const ButtonContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  gap: 8px;
-  margin-bottom: 16px;
-
-  button {
-    flex: 1;
-    padding: 10px;
-=======
 
 export const ButtonContainer = styled.div`
   display: flex;
@@ -38,16 +27,11 @@ export const ButtonContainer = styled.div`
 
   button {
     flex: 1;
->>>>>>> 94694ae (refactored styling and cleaned up code)
     font-weight: 600;
     border: none;
     border-radius: 4px;
     color: #ffffff;
     cursor: pointer;
-<<<<<<< HEAD
-    transition: opacity 0.2s ease;
-    font-size: 14px;
-=======
     transition: all 0.2s ease;
   }
 
@@ -69,7 +53,6 @@ export const ButtonContainer = styled.div`
       min-height: 44px;
       border-radius: 6px;
     }
->>>>>>> 94694ae (refactored styling and cleaned up code)
   }
 
   button.plusButton {
@@ -90,13 +73,10 @@ export const ButtonContainer = styled.div`
 
   button:hover {
     opacity: 0.9;
-<<<<<<< HEAD
-=======
     transform: translateY(-1px);
   }
 
   button:active {
     transform: translateY(0);
->>>>>>> 94694ae (refactored styling and cleaned up code)
   }
 `;
